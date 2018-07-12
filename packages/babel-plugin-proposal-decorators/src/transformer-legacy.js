@@ -46,7 +46,7 @@ function applyEnsureOrdering(path) {
   return t.sequenceExpression(
     identDecorators
       .map(decorator => {
-        const expression = decorator.expression;
+        const expression = decorator.expression || decorator.callee;
         const id = (decorator.expression = path.scope.generateDeclaredUidIdentifier(
           "dec",
         ));
